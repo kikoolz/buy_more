@@ -1,5 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
+import SearchBar from "./SearchBar";
+import { Bell, Home, ShoppingCart, User } from "lucide-react";
 
 const Navbar = () => {
   return (
@@ -13,10 +15,22 @@ const Navbar = () => {
           height={36}
           className="w-6 h-6 md:w-9 md:h-9"
         />
-        <p className="text-xl font-bold tracking-wider">BUY MORE</p>
+        <p className="hidden md:block text-xl font-bold tracking-wider">
+          BUY MORE
+        </p>
       </Link>
       {/* RIGHT */}
-      <div className="right">right</div>
+      <div className="flex items-center gap-6">
+        <SearchBar />
+        <Link href="/">
+          <Home className="w-6 h-6 text-gray-600" />
+        </Link>
+        <Bell className="w-6 h-6 text-gray-600" />
+        <ShoppingCart className="w-6 h-6 text-gray-600" />
+        <Link href="/login">
+          <User className="w-6 h-6 text-gray-600" />
+        </Link>
+      </div>
     </nav>
   );
 };
