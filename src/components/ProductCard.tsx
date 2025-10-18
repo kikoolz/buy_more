@@ -1,12 +1,12 @@
 "use client";
 
-// import useCartStore from "@/stores/cartStore";
+import useCartStore from "@/stores/cartStore";
 import { ProductsType } from "@/types";
 import { ShoppingCart } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-// import { toast } from "react-toastify";
+import { toast } from "react-toastify";
 
 const ProductCard = ({ product }: { product: ProductsType }) => {
   const [productTypes, setProductTypes] = useState({
@@ -14,7 +14,7 @@ const ProductCard = ({ product }: { product: ProductsType }) => {
     color: product.colors[0],
   });
 
-  //   const { addToCart } = useCartStore();
+  const { addToCart } = useCartStore();
 
   const handleProductType = ({
     type,
@@ -29,15 +29,15 @@ const ProductCard = ({ product }: { product: ProductsType }) => {
     }));
   };
 
-  //   const handleAddToCart = () => {
-  //     addToCart({
-  //       ...product,
-  //       quantity: 1,
-  //       selectedSize: productTypes.size,
-  //       selectedColor: productTypes.color,
-  //     });
-  //     toast.success("Product added to cart")
-  //   };
+  const handleAddToCart = () => {
+    addToCart({
+      ...product,
+      quantity: 1,
+      selectedSize: productTypes.size,
+      selectedColor: productTypes.color,
+    });
+    toast.success("Product added to cart");
+  };
 
   return (
     <div className="shadow-lg rounded-lg overflow-hidden">
@@ -65,9 +65,9 @@ const ProductCard = ({ product }: { product: ProductsType }) => {
               name="size"
               id="size"
               className="ring ring-gray-300 rounded-md px-2 py-1"
-              //   onChange={(e) =>
-              //     handleProductType({ type: "size", value: e.target.value })
-              //   }
+              onChange={(e) =>
+                handleProductType({ type: "size", value: e.target.value })
+              }
             >
               {product.sizes.map((size) => (
                 <option key={size} value={size}>
@@ -105,7 +105,7 @@ const ProductCard = ({ product }: { product: ProductsType }) => {
         <div className="flex items-center justify-between">
           <p className="font-medium">${product.price.toFixed(2)}</p>
           <button
-            // onClick={handleAddToCart}
+            onClick={handleAddToCart}
             className="ring-1 ring-gray-200 shadow-lg rounded-md px-2 py-1 text-sm cursor-pointer hover:text-white hover:bg-black transition-all duration-300 flex items-center gap-2"
           >
             <ShoppingCart className="w-4 h-4" />
