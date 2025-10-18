@@ -17,7 +17,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Buy More",
-  description: "Buy More Hypermarket Shop a one stop shop for all your needs",
+  description:
+    "Buy More Hypermarket Shop a one stop shop for all your needs and more",
 };
 
 export default function RootLayout({

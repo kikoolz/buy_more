@@ -11,10 +11,6 @@ export type ProductsType = {
   images: Record<string, string>;
 };
 
-export type ProductImageType = {
-  [key: string]: string;
-};
-
 export type CartItemType = ProductsType & {
   quantity: number;
   selectedSize: string;

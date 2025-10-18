@@ -159,3 +159,12 @@ dist/
 
 #Ignore cursor AI rules
 .cursor/rules/codacy.mdc
+
+# Codacy files
+.codacy/
+codacy.yml
+.codacy.yml
+codacy.json
+.codacy.json
+codacy-results.json
+.codacy-results.json
